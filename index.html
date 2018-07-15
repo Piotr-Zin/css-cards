@@ -18,8 +18,9 @@
 </head>
 
 <body>
-  <script type="text/javascript" src="overlay-behavior.js">
-  </script>
+  <script type="text/javascript"
+          src="overlay-behavior.js">
+          </script>
 
   <div id="container">
 
@@ -35,26 +36,6 @@
 
     <div class="modal fullscreen-overlay">
       <div class="person-details">
-        <!-- <div class="card">
-          <div class="avatar">
-            <img src="avatar.png"
-                 alt="Avatar image">
-          </div>
-          <div class="anim"></div>
-          <div class="person-name">
-            <h3>First name Last name</h3>
-          </div>
-          <div class="description">
-            <section>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos consequuntur magni quam ullam distinctio asperiores
-              veniam perspiciatis? Quod, esse. Quas similique consequuntur vero provident, placeat doloribus beatae nobis
-              porro.
-            </section>
-          </div>
-          <div class="bottom-panel">
-            <span>Footer</span>
-          </div>
-        </div> -->
       </div>
     </div>
 
@@ -62,14 +43,15 @@
     <div class="cards-container">
 
       <div class="card">
-        <div class="avatar">
+        <div class="avatar" data-bgcolor="red">
           <img src="assets/images/avatar.png"
                alt="Avatar image">
         </div>
-        <div class="anim"></div>
+        <div class="progress-animation"></div>
         <div class="person-name">
           <h3>First name Last name</h3>
         </div>
+        <div class="horizontal-divider"></div>
         <div class="description">
           <section>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos consequuntur magni quam ullam distinctio asperiores
@@ -77,19 +59,20 @@
           </section>
         </div>
         <div class="bottom-panel">
-          <span>Footer</span>
+          <span>Date: ...</span>
         </div>
       </div>
 
       <div class="card">
-        <div class="avatar">
+        <div class="avatar" data-bgcolor="blue">
           <img src="assets/images/avatar.png"
                alt="Avatar image">
         </div>
-        <div class="anim"></div>
+        <div class="progress-animation"></div>
         <div class="person-name">
           <h3>Longer First name Longer Last name</h3>
         </div>
+        <div class="horizontal-divider"></div>
         <div class="description">
           <section>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos consequuntur magni quam ullam distinctio asperiores
@@ -97,15 +80,20 @@
           </section>
         </div>
         <div class="bottom-panel">
-          <span>Footer</span>
+          <span>Date: ...</span>
         </div>
       </div>
     </div>
 
     <footer>
-      <span>
+      <span class="footer-left">
         Made by Piotr Ziń: piotrzinbdg@gmail.com
       </span>
+
+      <div class="footer-right">
+        <span>GitHub:</span>
+        <a href="https://github.com/Piotr-Zin">https://github.com/Piotr-Zin</a>
+      </div>
     </footer>
 
   </div>

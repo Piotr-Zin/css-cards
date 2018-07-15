@@ -17,6 +17,12 @@ function avatarClicked(event) {
     detailsOverlay.style = 'display: block';
   }
 
+  console.log(event.srcElement);
+  console.log(event.srcElement.getAttribute('data-bgcolor'));
+
+//   var avatarDiv = document.querySelector('.avatar');
+//   console.log(avatarDiv.getAttribute('data-bgColor'));
+
   var personDetails = document.querySelector('.person-details');
 
   if (personDetails) {
