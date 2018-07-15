@@ -1,0 +1,163 @@
+$primary-bg-color: #2e2e2e;
+$primary-card-bg-color: rgb(37, 134, 199);
+
+body {
+  margin: 0;
+  font-family: 'Montserrat';
+}
+
+.bg-image {
+  position: absolute;
+  background-color: black;
+  z-index: -1;
+}
+
+.bg-image img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+.intro {
+  display: block;
+  background-color: $primary-bg-color;
+  padding: 1em;
+}
+
+.header {
+  text-align: center;
+  color: white;
+}
+
+.cards-container {
+  margin: 2em;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  display: flex;
+  flex-flow: column;
+  box-shadow: rgb(122, 122, 122) 2px 2px 10px 1px;
+  width: 280px;
+  height: 100%;
+  margin: 1em;
+  background-color: white;
+  opacity: 0.9;
+}
+
+.card:hover {
+  box-shadow: rgb(94, 94, 94) 4px 4px 10px 1px;
+  animation: card-hover-animation 0.25s forwards 0s ease-in;
+}
+
+.card .avatar {
+  padding: 10% 0% 5% 0%;
+  background-color: $primary-card-bg-color;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.card .avatar img {
+  display: block;
+  border: 2px rgb(235, 235, 235) solid;
+  border-radius: 50%;
+  padding: 0.25em;
+  width: 72px;
+  height: 72px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card .person-name {
+  padding: 0.5em;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.card .description {
+  text-align: center;
+  padding: 0em 1em 1em 1em;
+}
+
+.card .bottom-panel {
+  padding: 0.25em 0;
+  background-color: rgb(29, 29, 31);
+  color: #e9e9e9;
+  align-self: flex-start;
+  width: 100%;
+}
+
+.card .bottom-panel span {
+  padding: 0em 1em 0em 1em;
+}
+
+.anim {
+  background-color: rgba(10, 46, 207, 0.87);
+  display: none;
+  width: 1px;
+  height: 8px;
+}
+
+.card:hover > .anim {
+  animation: progressAnimation 0.75s forwards 0.1s ease-out;
+  display: block;
+}
+
+footer {
+  background-color: #2e2e2e;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5em 0;
+}
+
+footer span {
+  padding: 0 2em 0 2em;
+}
+
+.fullscreen-overlay {
+  display: none;
+  padding: 2em;
+  background-color: rgba(0, 0, 0, 0.493);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.fullscreen-overlay .person-details {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
+/* Animation keyframes */
+@keyframes card-hover-animation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes progressAnimation {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
