@@ -1,6 +1,7 @@
 var detailsOverlay = null;
 document.addEventListener('DOMContentLoaded', function() {
   var avatarDivs = document.querySelectorAll('.avatar');
+  console.log(avatarDivs);
 
   avatarDivs.forEach((div, index, li) => {
     div.addEventListener('click', avatarClicked);
@@ -17,16 +18,21 @@ function avatarClicked(event) {
     detailsOverlay.style = 'display: block';
   }
 
-  console.log(event.srcElement);
-  console.log(event.srcElement.getAttribute('data-bgcolor'));
+  //   console.log(event.srcElement);
+  //   console.log(event.srcElement.getAttribute('data-bgcolor'));
 
-//   var avatarDiv = document.querySelector('.avatar');
-//   console.log(avatarDiv.getAttribute('data-bgColor'));
+  //   var avatarDiv = document.querySelector('.avatar');
+  //   console.log(avatarDiv.getAttribute('data-bgColor'));
 
   var personDetails = document.querySelector('.person-details');
 
   if (personDetails) {
-    var parentClone = event.target.parentElement.cloneNode(true);
+      console.log(event.srcElement);
+      
+    var parent = event.srcElement.parentElement;
+    console.log(parent);
+    
+    var parentClone = parent.cloneNode(true);
     personDetails.appendChild(parentClone);
   }
 }

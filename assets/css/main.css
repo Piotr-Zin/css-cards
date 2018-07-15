@@ -19,7 +19,8 @@ a {
 .intro {
   display: block;
   background-color: #2e2e2e;
-  padding: 0.5em; }
+  padding: 0.5em;
+  box-shadow: black 0px 3px 10px 1px; }
 
 .header {
   text-align: center;
