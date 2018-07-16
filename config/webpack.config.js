@@ -8,9 +8,9 @@ module.exports = (env, options) => {
       .sync('./src/*.js')
       .concat('./index.html')
       .concat(glob.sync('./assets/scss/*.scss')),
-      
+
     output: {
-      filename: './dist/bundle.js'
+      filename: 'bundle.js'
     },
 
     mode: 'development',
@@ -40,7 +40,7 @@ module.exports = (env, options) => {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: './dist/main.css'
+        filename: 'main.css'
         // Default optison:
         // filename: devMode ? '[name].css' : '[name].[hash].css',
         // chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
