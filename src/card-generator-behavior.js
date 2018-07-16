@@ -1,11 +1,14 @@
 import { parseDataAttributes } from './data-attributes-behavior';
+import { avatarImage, cards } from '../config/resources';
 
-function generateCard(firstName, lastName, description, color) {
-
+function generateCard(
+  { firstName, lastName, description, color },
+  avatarImageUrl = avatarImage
+) {
   var generatedHtml = `<div class="card">
                         <div class="avatar"
                             data-color="${color}">
-                        <img src="assets/images/avatar.png"
+                        <img src="${avatarImageUrl}"
                             alt="Avatar image">
                         </div>
                         <div class="progress-animation"></div>
@@ -30,21 +33,17 @@ document.addEventListener('DOMContentLoaded', function() {
   if (cardsContainer) {
     console.log('Adding cards...');
 
-    var loremIpsum =
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos consequuntur magni quam ullam distinctio asperiores veniam perspiciatis? Quod, esse. Quas similique consequuntur vero provident, placeat doloribus beatae nobis porro.';
+    //var generatedCards = [];
+    cards.forEach((card, index, li) => {
+      //generatedCards.push(generateCard(card));
+      cardsContainer.innerHTML += generateCard(card);
+    });
 
-    var generatedCards = [];
-    generatedCards.push(generateCard('John', 'Doe', loremIpsum, '#BCBC1F'));
-    generatedCards.push(generateCard('Alice', 'Doe', loremIpsum, '#1FBC72'));
-    generatedCards.push(generateCard('Brian', 'Doe', loremIpsum, '#832DDB'));
-    generatedCards.push(generateCard('Mathew', 'Doe', loremIpsum, '#E349B2'));
-    generatedCards.push(generateCard('Steve', 'Doe', loremIpsum, '#3A812F'));
-    generatedCards.push(generateCard('Steve', 'Doe', loremIpsum, '#865521'));
+    //cardsContainer.innerHTML += generatedCards.join('');\
 
-    cardsContainer.innerHTML = cardsContainer.innerHTML + generatedCards.join();
   } else {
     console.error('Could not find the cards container element!');
   }
-  
-  parseDataAttributes();  
+
+  parseDataAttributes();
 });

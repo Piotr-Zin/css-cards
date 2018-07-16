@@ -12,26 +12,15 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Montserrat" />
 
-  <link rel="stylesheet"
+  <!-- <link rel="stylesheet"
         type="text/css"
-        href="./dist/main.css" />
+        href="main.css" />
 
-  <script src="./dist/bundle.js"></script>
+  <script src="bundle.js"></script> -->
 
 </head>
 
 <body>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var dateText = document.querySelectorAll(".bottom-panel span");
-      if (dateText.length) {
-        dateText.forEach((span, index, li) => {
-          span.innerHTML = span.innerHTML + new Date().toJSON().slice(0, 10);
-        });
-      }
-    });
-  </script>
 
   <div id="container">
 
@@ -54,7 +43,7 @@
 
       <div class="card">
         <div class="avatar"
-             data-color="#BD7523">
+             data-color="#BBB8B0">
           <img src="assets/images/avatar.png"
                alt="Avatar image">
         </div>
