@@ -1,16 +1,19 @@
 var detailsOverlay = null;
 document.addEventListener('DOMContentLoaded', function() {
   var avatarDivs = document.querySelectorAll('.avatar');
-  console.log(avatarDivs);
 
   avatarDivs.forEach((div, index, li) => {
+
     div.addEventListener('click', avatarClicked);
+    div.source = div;
   });
 
   detailsOverlay = document.querySelector('.fullscreen-overlay');
+
   if (detailsOverlay) {
     detailsOverlay.addEventListener('click', overlayClosed);
   }
+
 });
 
 function avatarClicked(event) {
@@ -18,20 +21,14 @@ function avatarClicked(event) {
     detailsOverlay.style = 'display: block';
   }
 
-  //   console.log(event.srcElement);
-  //   console.log(event.srcElement.getAttribute('data-bgcolor'));
-
-  //   var avatarDiv = document.querySelector('.avatar');
-  //   console.log(avatarDiv.getAttribute('data-bgColor'));
+    console.log(event.currentTarget);
+    console.log(event.currentTarget.getAttribute('data-color'));
 
   var personDetails = document.querySelector('.person-details');
 
   if (personDetails) {
-      console.log(event.srcElement);
-      
-    var parent = event.srcElement.parentElement;
-    console.log(parent);
-    
+    var parent = event.currentTarget.parentElement;
+
     var parentClone = parent.cloneNode(true);
     personDetails.appendChild(parentClone);
   }

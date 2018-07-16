@@ -9,18 +9,29 @@
         content="ie=edge">
   <title>Document</title>
 
-  <link href='https://fonts.googleapis.com/css?family=Montserrat'
-        rel='stylesheet'>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Montserrat" />
+
   <link rel="stylesheet"
         type="text/css"
-        href="assets/css/main.css" />
+        href="./dist/main.css" />
+
+  <script src="./dist/bundle.js"></script>
 
 </head>
 
 <body>
-  <script type="text/javascript"
-          src="overlay-behavior.js">
-          </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var dateText = document.querySelectorAll(".bottom-panel span");
+      if (dateText.length) {
+        dateText.forEach((span, index, li) => {
+          span.innerHTML = span.innerHTML + new Date().toJSON().slice(0, 10);
+        });
+      }
+    });
+  </script>
 
   <div id="container">
 
@@ -39,11 +50,11 @@
       </div>
     </div>
 
-
     <div class="cards-container">
 
       <div class="card">
-        <div class="avatar">
+        <div class="avatar"
+             data-color="#BD7523">
           <img src="assets/images/avatar.png"
                alt="Avatar image">
         </div>
@@ -59,7 +70,7 @@
           </section>
         </div>
         <div class="bottom-panel">
-          <span>Date: ...</span>
+          <span>Date: </span>
         </div>
       </div>
 
@@ -80,9 +91,10 @@
           </section>
         </div>
         <div class="bottom-panel">
-          <span>Date: ...</span>
+          <span>Date: </span>
         </div>
       </div>
+
     </div>
 
     <footer>
