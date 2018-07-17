@@ -17,14 +17,19 @@ a {
 
 .bg-image {
   position: absolute;
-  background-color: black;
-  z-index: -1;
-}
-
-.bg-image img {
-  width: 100%;
-  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   opacity: 0.7;
+  z-index: -1;
+  width: auto;
+  height: 100%;
+  background-image: url('../images/background-workspace.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  border-bottom: 4px black solid;
 }
 
 .intro {
@@ -41,16 +46,19 @@ a {
 }
 
 .cards-container {
-  margin: 2em;
-  display: inline-flex;
+  margin: 2em auto;
+  font-size: 0.75em;
+  display: flex;
   flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 
 .card {
   display: flex;
   flex-flow: column;
   box-shadow: rgb(122, 122, 122) 2px 2px 10px 1px;
-  width: 320px;
+  width: 240px;
   height: 100%;
   margin: 0.75em;
   background-color: white;
@@ -114,14 +122,17 @@ a {
 
 .progress-animation {
   background-color: rgba(10, 46, 207, 0.87);
-  display: none;
-  width: 1px;
+  display: block;
+  width: 0px;
   height: 8px;
+
+  transition: width 0.75s ease-out;
 }
 
 .card:hover > .progress-animation {
-  animation: progressAnimation 0.75s forwards 0.1s ease-out;
   display: block;
+  width: 100%;
+  opacity: 1;
 }
 
 footer {
@@ -165,8 +176,15 @@ footer > * {
   position: absolute;
   top: 50%;
   left: 50%;
+  
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  .card {
+    width: 300px;
+  }
 }
 
 .card .horizontal-divider {
@@ -177,7 +195,6 @@ footer > * {
   width: 90%;
   background-color: $primary-bg-color;
   opacity: 0.75;
-
 }
 
 /* Animation keyframes */
@@ -187,15 +204,5 @@ footer > * {
   }
   100% {
     transform: scale(1.05);
-  }
-}
-
-@keyframes progressAnimation {
-  0% {
-    width: 0%;
-  }
-
-  100% {
-    width: 100%;
   }
 }

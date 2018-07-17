@@ -1,5 +1,7 @@
 import { parseDataAttributes } from './data-attributes-behavior';
-import { avatarImage, cards } from '../config/resources';
+import { avatarImage, readJSON } from '../config/resources';
+import * as dateInjector from './date-injector';
+import * as overlay from './overlay-behavior';
 
 function generateCard(
   { firstName, lastName, description, color },
@@ -28,22 +30,29 @@ function generateCard(
 
   return generatedHtml;
 }
+
 document.addEventListener('DOMContentLoaded', function() {
   var cardsContainer = document.querySelector('.cards-container');
+
   if (cardsContainer) {
-    console.log('Adding cards...');
 
-    //var generatedCards = [];
-    cards.forEach((card, index, li) => {
-      //generatedCards.push(generateCard(card));
-      cardsContainer.innerHTML += generateCard(card);
-    });
-
-    //cardsContainer.innerHTML += generatedCards.join('');\
+    readJSON('../assets/data/cards-data.json').then(
+      response => {
+        const cards = JSON.parse(response);
+        cards.forEach((card, index, li) => {
+          cardsContainer.innerHTML += generateCard(card);
+        });
+        parseDataAttributes();
+        overlay.init();
+        dateInjector.inject();
+        
+        console.log(`Added ${cards.length} cards...`);
+        
+      },
+      err => console.error(err)
+    );
 
   } else {
     console.error('Could not find the cards container element!');
   }
-
-  parseDataAttributes();
 });

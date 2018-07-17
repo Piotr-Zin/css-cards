@@ -1,0 +1,37 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos consequuntur magni quam ullam distinctio asperiores veniam perspiciatis? Quod, esse. Quas similique consequuntur vero provident, placeat doloribus beatae nobis porro.",
+    "color": "#53D2BD"
+  },
+  {
+    "firstName": "Alice",
+    "lastName": "Smith",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos consequuntur magni quam ullam distinctio asperiores veniam perspiciatis? Quod, esse. Quas similique consequuntur vero provident, placeat doloribus beatae nobis porro.",
+    "color": "#FF6400"
+  },
+  {
+    "firstName": "Jan",
+    "lastName": "Kowalski",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos consequuntur magni quam ullam distinctio asperiores veniam perspiciatis? Quod, esse. Quas similique consequuntur vero provident, placeat doloribus beatae nobis porro.",
+    "color": "#09D010"
+  },
+  {
+    "firstName": "Joanna",
+    "lastName": "Nowak",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos consequuntur magni quam ullam distinctio asperiores veniam perspiciatis? Quod, esse. Quas similique consequuntur vero provident, placeat doloribus beatae nobis porro.",
+    "color": "#C41DC6"
+  },
+  {
+    "firstName": "Donald",
+    "lastName": "Trump",
+    "description":
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos consequuntur magni quam ullam distinctio asperiores veniam perspiciatis? Quod, esse. Quas similique consequuntur vero provident, placeat doloribus beatae nobis porro.",
+    "color": "#C92313"
+  }
+]

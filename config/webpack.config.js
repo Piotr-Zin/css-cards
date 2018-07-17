@@ -15,9 +15,6 @@ module.exports = (env, options) => {
     output: {
       filename: 'bundle.js',
       path: path.join(__dirname, '/../dist')
-      //filename: 'bundle.js',
-      //   path: path.resolve(__dirname, '../')
-      //path: path.join(__dirname + '/../')
     },
 
     mode: 'development',
