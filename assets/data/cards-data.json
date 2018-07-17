@@ -1,5 +1,4 @@
-[
-  {
+[{
     "firstName": "John",
     "lastName": "Doe",
     "description":
@@ -33,5 +32,4 @@
     "description":
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe dignissimos consequuntur magni quam ullam distinctio asperiores veniam perspiciatis? Quod, esse. Quas similique consequuntur vero provident, placeat doloribus beatae nobis porro.",
     "color": "#C92313"
-  }
-]
+  }]

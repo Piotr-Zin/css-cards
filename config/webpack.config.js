@@ -10,7 +10,8 @@ module.exports = (env, options) => {
       .sync('./src/*.js')
       .concat('./config/resources.js')
       .concat('./index.html')
-      .concat(glob.sync('./assets/scss/*.scss')),
+      .concat(glob.sync('./assets/scss/*.scss'))
+      .concat(glob.sync('./assets/data/*.json')),
 
     output: {
       filename: 'bundle.js',

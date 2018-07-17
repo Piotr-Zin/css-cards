@@ -1,5 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function() {
-
 export function inject() {
   var dateText = document.querySelectorAll('.bottom-panel span');
   if (dateText.length) {
@@ -8,4 +6,3 @@ export function inject() {
     });
   }
 }
-// });

@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', parseDataAttributes);
+document.addEventListener('DOMContentLoaded', parse);
 
-export function parseDataAttributes() {
+export function parse() {
   var avatarDivs = document.querySelectorAll('.avatar');
 
   avatarDivs.forEach((div, index, li) => {
