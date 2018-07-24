@@ -3,7 +3,7 @@ var detailsOverlay = null;
 export function init() {
   var avatarDivs = document.querySelectorAll('.avatar');
 
-  avatarDivs.forEach((div, index, li) => {
+  avatarDivs.forEach((div, _index, _li) => {
     div.addEventListener('click', avatarClicked);
     div.source = div;
   });
@@ -34,13 +34,18 @@ function avatarClicked(event) {
   });
 
   if (progressAnimation) {
-    progressAnimation.style = 'display: block; width: 100%; opacity: 1; background-color: #179B08';
+    progressAnimation.style =
+      'display: block; width: 100%; opacity: 1; background-color: #179B08';
   }
 
   detailsOverlay = document.querySelector('.fullscreen-overlay');
 
   var overlayClosed = (function(triggerElement) {
-    var handler = function() {
+    var handler = function(event) {
+      if (event.target !== detailsOverlay) {
+        return;
+      }
+
       detailsOverlay.style = 'display: none';
       var personDetails = document.querySelector('.person-details');
       if (personDetails) {

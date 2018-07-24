@@ -3,6 +3,14 @@ $primary-card-bg-color: rgb(37, 134, 199);
 $link-color: $primary-card-bg-color;
 $link-hover-color: rgb(67, 173, 243);
 $body-bg-color: #757575;
+$card-animation-duration: 0.5s;
+
+@mixin transform($transformation) {
+  transform: $transformation;
+  -webkit-transform: $transformation;
+  -moz-transform: $transformation;
+  -ms-transform: $transformation;
+}
 
 body {
   margin: 0;
@@ -23,8 +31,6 @@ a {
   right: 0;
   opacity: 0.7;
   z-index: -1;
-  width: auto;
-  height: 100%;
   background-image: url('../images/background-workspace.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -57,67 +63,86 @@ a {
 .card {
   display: flex;
   flex-flow: column;
-  box-shadow: rgb(122, 122, 122) 2px 2px 10px 1px;
+  box-shadow: rgb(122, 122, 122) 2px 2px 10px 0px;
   width: 240px;
   height: 100%;
   margin: 0.75em;
   background-color: white;
   opacity: 0.9;
-}
 
-.card:hover {
-  box-shadow: rgb(94, 94, 94) 4px 4px 10px 1px;
-  animation: card-hover-animation 0.25s forwards 0s ease-in;
-}
-
-.card .avatar {
-  padding: 10% 0% 5% 0%;
-  background-color: $primary-card-bg-color;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.card .avatar img {
-  display: block;
-  border: 2px rgb(235, 235, 235) solid;
-  border-radius: 50%;
-  padding: 0.25em;
-  width: 72px;
-  height: 72px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.card .person-name {
-  padding: 0.5em;
-  word-wrap: break-word;
-  text-align: center;
-}
-
-.card .person-name h3 {
-  margin-bottom: 0;
-}
-
-.card .description {
-  text-align: center;
-  padding: 0.5em 1em 1em 1em;
-}
-
-.card .bottom-panel {
-  padding: 0.25em 0;
-  background-color: rgb(29, 29, 31);
-  color: #e9e9e9;
-  align-self: flex-start;
-  width: 100%;
+  transition: all $card-animation-duration ease-out;
 
   &:hover {
-    cursor: pointer;
-  }
-}
+    box-shadow: rgb(94, 94, 94) 4px 4px 10px 1px;
+    transform: scale(1.05);
 
-.card .bottom-panel span {
-  padding: 0em 1em 0em 1em;
+    & > .progress-animation {
+      display: block;
+      width: 100%;
+      opacity: 1;
+      box-shadow: 0px 2px 5px -1px #000000cc;
+    }
+  }
+
+  .avatar {
+    padding: 10% 0% 5% 0%;
+    background-color: $primary-card-bg-color;
+    &:hover {
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      border: 2px rgb(235, 235, 235) solid;
+      border-radius: 50%;
+      padding: 0.25em;
+      width: 72px;
+      height: 72px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .person-name {
+    padding: 0.5em;
+    word-wrap: break-word;
+    text-align: center;
+
+    h3 {
+      margin-bottom: 0;
+    }
+  }
+
+  .description {
+    text-align: center;
+    padding: 0.5em 1em 1em 1em;
+  }
+
+  .bottom-panel {
+    padding: 0.25em 0;
+    background-color: rgb(29, 29, 31);
+    color: #e9e9e9;
+    align-self: flex-start;
+    width: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    span {
+      padding: 0em 1em 0em 1em;
+    }
+  }
+
+  .horizontal-divider {
+    display: block;
+    margin: 0.25em;
+    align-self: center;
+    height: 1px;
+    width: 90%;
+    background-color: $primary-bg-color;
+    opacity: 0.75;
+  }
 }
 
 .progress-animation {
@@ -126,13 +151,8 @@ a {
   width: 0px;
   height: 8px;
 
-  transition: width 0.75s ease-out;
-}
-
-.card:hover > .progress-animation {
-  display: block;
-  width: 100%;
-  opacity: 1;
+  transition: width $card-animation-duration ease-out,
+    box-shadow $card-animation-duration ease-out;
 }
 
 footer {
@@ -143,23 +163,28 @@ footer {
   left: 0;
   width: 100%;
   padding: 0.5em 0;
-}
 
-footer > * {
-  padding: 0 2em 0 2em;
-}
+  & > * {
+    padding: 0 2em 0 2em;
+  }
 
-.footer-right {
-  float: right;
-  a:hover {
-    color: $link-hover-color;
+  .footer-right {
+    float: right;
+    a {
+      transition: all $card-animation-duration ease-out;
+
+      &:hover {
+        color: $link-hover-color;
+        text-shadow: #39addb 0px 0px 2px;
+      }
+    }
   }
 }
 
 .fullscreen-overlay {
   display: none;
   padding: 2em;
-  background-color: rgba(0, 0, 0, 0.658);
+  background-color: rgba(0, 0, 0, 0.712);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -168,41 +193,18 @@ footer > * {
   width: 100%;
   height: 100%;
   z-index: 2;
-  transform: scale(1.4);
-}
+  transform: scale(1.2);
 
-.fullscreen-overlay .person-details {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
+  .person-details {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 
-  .card {
-    width: 300px;
-  }
-}
+    @include transform(translate(-50%, -50%));
 
-.card .horizontal-divider {
-  display: block;
-  margin: 0.25em;
-  align-self: center;
-  height: 1px;
-  width: 90%;
-  background-color: $primary-bg-color;
-  opacity: 0.75;
-}
-
-/* Animation keyframes */
-@keyframes card-hover-animation {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.05);
+    .card {
+      width: 300px;
+    }
   }
 }

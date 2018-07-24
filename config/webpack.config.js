@@ -3,7 +3,7 @@ var path = require('path');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = (env, options) => {
+module.exports = (_env, options) => {
   const devMode = options.mode !== 'production';
   return {
     entry: glob

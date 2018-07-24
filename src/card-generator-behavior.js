@@ -1,11 +1,7 @@
-import * as dataAttributes from './data-attributes-behavior';
-import { avatarImage, readJSON } from '../config/resources';
-import * as dateInjector from './date-injector';
-import * as overlay from './overlay-behavior';
 
-const jsonData = require('../assets/data/cards-data.json');
+import { avatarImage } from '../config/resources';
 
-function generateCard(
+export function generate(
   { firstName, lastName, description, color },
   avatarImageUrl = avatarImage
 ) {
@@ -22,7 +18,7 @@ function generateCard(
                         <div class="horizontal-divider"></div>
                         <div class="description">
                         <section>
-                            ${description}
+                          ${description}
                         </section>
                         </div>
                         <div class="bottom-panel">
@@ -32,21 +28,3 @@ function generateCard(
 
   return generatedHtml;
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  var cardsContainer = document.querySelector('.cards-container');
-
-  if (cardsContainer) {
-    const cards = jsonData;
-    cards.forEach((card, index, li) => {
-      cardsContainer.innerHTML += generateCard(card);
-    });
-    dataAttributes.parse();
-    overlay.init();
-    dateInjector.inject();
-
-    console.log(`Added ${cards.length} cards...`);
-  } else {
-    console.error('Could not find the cards container element!');
-  }
-});
