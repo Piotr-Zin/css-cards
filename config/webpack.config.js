@@ -57,7 +57,8 @@ module.exports = (_env, options) => {
         // chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
       }),
       new HtmlWebpackPlugin({
-        template: 'index.html'
+        template: 'index.html',
+        favicon: 'assets/images/favicon.ico'
       })
     ]
   };
